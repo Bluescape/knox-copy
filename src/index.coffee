@@ -124,7 +124,7 @@ workOffStream = ({stream, concurrency, worker, done}) ->
 
 knox::copyBucket = ({fromBucket, fromPrefix, toPrefix}, cb) ->
   fromBucket ?= @bucket
-  fromClient = knox.createClient {@key, @secret, bucket: fromBucket}
+  fromClient = knox.createClient {@key, @secret, bucket: fromBucket, @region}
   fromPrefix = fromPrefix and stripLeadingSlash(fromPrefix) or ''
   toPrefix = toPrefix and stripLeadingSlash(toPrefix) or ''
 
